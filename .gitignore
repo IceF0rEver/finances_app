@@ -1,0 +1,49 @@
+# Nuxt dev/build outputs
+/finances_app_frontend/.output
+/finances_app_frontend/.data
+/finances_app_frontend/.nuxt
+/finances_app_frontend/.nitro
+/finances_app_frontend/.cache
+/finances_app_frontend/dist
+
+# Node dependencies
+/finances_app_frontend/node_modules
+
+# Logs
+/finances_app_frontend/logs
+/finances_app_frontend/*.log
+
+# Misc
+/finances_app_frontend/.DS_Store
+/finances_app_frontend/.fleet
+/finances_app_frontend/.idea
+
+# Local env files
+/finances_app_frontend/.env
+/finances_app_frontend/.env.*
+/finances_app_frontend/!.env.example
+
+
+/finances_app_backend/.phpunit.cache
+/finances_app_backend/node_modules
+/finances_app_backend/public/build
+/finances_app_backend/public/hot
+/finances_app_backend/public/storage
+/finances_app_backend/storage/*.key
+/finances_app_backend/storage/pail
+/finances_app_backend/vendor
+/finances_app_backend/.env
+/finances_app_backend/.env.backup
+/finances_app_backend/.env.production
+/finances_app_backend/.phpactor.json
+/finances_app_backend/.phpunit.result.cache
+/finances_app_backend/Homestead.json
+/finances_app_backend/Homestead.yaml
+/finances_app_backend/npm-debug.log
+/finances_app_backend/yarn-error.log
+/finances_app_backend/auth.json
+/finances_app_backend/.fleet
+/finances_app_backend/.idea
+/finances_app_backend/.nova
+/finances_app_backend/.vscode
+/finances_app_backend/.zed
