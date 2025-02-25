@@ -1,27 +1,23 @@
 
 <template>
-  <div v-if="userAuth" class="flex flex-col items-center justify-center min-h-screen">
-    <p class="p-4">Bienvenue, {{ userAuth?.email }}</p>
-    <form @submit.prevent="submit" class="space-y-4">
-        <Button type="submit" class="" >{{ $t('auth.logout') }}</Button>
-    </form>
-  </div>
+    <SidebarProvider :defaultOpen="defaultOpen">
+    <AppSidebar />
+    <main>
+      <SidebarTrigger />
+      <RouterView />
+      <div class="p-4">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium pariatur voluptatum nesciunt quisquam sed, porro enim, similique molestias odio quam recusandae aut ullam assumenda? Accusantium quidem at nulla ducimus rem!
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium pariatur voluptatum nesciunt quisquam sed, porro enim, similique molestias odio quam recusandae aut ullam assumenda? Accusantium quidem at nulla ducimus rem!</p>
+      </div>
+    </main>
+  </SidebarProvider>
 </template>
 <script setup>
     definePageMeta({
         middleware: ['auth']
     })
-    import { Button } from "@/components/ui/button";
+    import AppSidebar from '@/components/AppSidebar.vue'
+    import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
 
-
-    const { logout } = useAuth();
-    const userAuth = useCookie('user-auth');
-
-    async function submit() {
-        try {
-            await logout(); 
-        } catch (err) {
-            console.error(err.value);
-        };
-    };
+    const defaultOpen = useCookie('sidebar_state')
 </script>

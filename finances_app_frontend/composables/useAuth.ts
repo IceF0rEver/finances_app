@@ -1,4 +1,4 @@
-import type { userForm } from '@/utils/types';
+import type { userForm, userAuth } from '@/utils/types';
 
 export default function useAuth() {
     const { t } = useI18n();
@@ -7,7 +7,7 @@ export default function useAuth() {
     const router = useRouter();
 
     const user = useState('auth-user', () => null);
-    const userAuth = useCookie('user-auth');
+    const userAuth = useCookie<userAuth | null>('user-auth');
 
     async function login(userForm: userForm) {
         return csrf()

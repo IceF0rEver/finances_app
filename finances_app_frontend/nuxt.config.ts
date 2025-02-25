@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     'shadcn-nuxt',
     '@nuxtjs/i18n',
+    '@nuxt/icon',
   ],
 
   runtimeConfig: {
