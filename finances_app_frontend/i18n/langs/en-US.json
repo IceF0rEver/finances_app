@@ -1,0 +1,23 @@
+{
+    "auth" : {
+        "login": "Log in",
+        "password": "Password",
+        "confirmPassword" : "Confirm Password",
+        "passwordMismatch" : "Mismatch Password",
+        "submit": "Sign in",
+        "register": "Sign up",
+        "name": "Name",
+        "email": "Email address",
+        "noAccount": "No account?",
+        "haveAccount": "I have an account!",
+        "register_submit": "Create my account",
+        "error": "An error occurred",
+        "forgotPassword": "Forgot password?",
+        "logout": "Log out"
+    },
+    "langs" : {
+        "en": "English",
+        "fr": "Français",
+        "select" : "choose a language"
+    }
+}

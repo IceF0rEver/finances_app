@@ -1,0 +1,23 @@
+{
+    "auth" : {
+        "login": "Se connecter",
+        "password": "Mot de passe",
+        "confirmPassword" : "Confirmer le Mot de passe",
+        "passwordMismatch" : "Mot de passe incompatible",
+        "submit": "Connexion",
+        "register": "S'enregistrer",
+        "name": "Nom",
+        "email": "Adresse e-mail",
+        "noAccount" : "Pas de compte ?",
+        "haveAccount": "J'ai un compte !",
+        "register_submit": "Créer mon compte",
+        "error": "Une erreur est survenue !",
+        "forgotPassword": "Mot de passe oublier ?",
+        "logout": "Déconnexion"
+    },
+    "langs" : {
+        "en": "English",
+        "fr": "Français",
+        "select" : "Choisir une langue"
+    }
+}
