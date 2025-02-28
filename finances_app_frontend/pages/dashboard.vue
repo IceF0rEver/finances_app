@@ -1,15 +1,21 @@
-
 <template>
-    <SidebarProvider :defaultOpen="defaultOpen">
+  <SidebarProvider :defaultOpen="defaultOpen"> 
     <AppSidebar />
-    <main>
-      <SidebarTrigger />
-      <RouterView />
-      <div class="p-4">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium pariatur voluptatum nesciunt quisquam sed, porro enim, similique molestias odio quam recusandae aut ullam assumenda? Accusantium quidem at nulla ducimus rem!
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium pariatur voluptatum nesciunt quisquam sed, porro enim, similique molestias odio quam recusandae aut ullam assumenda? Accusantium quidem at nulla ducimus rem!</p>
-      </div>
-    </main>
+    <SidebarInset>
+      <header class="flex h-14 shrink-0 items-center gap-2">
+        <div class="flex flex-1 items-center gap-2 px-3">
+          <SidebarTrigger />
+          <Separator orientation="vertical" class="mr-2 h-4" />
+          <RouterView />
+        </div>
+        <div class="flex flex-row gap-2 p-2">
+          <DarkMode class="my-auto"/>
+          <Separator orientation="vertical" class="h-8 my-auto" />
+          <SelectLang/>
+        </div>
+      </header>
+      <div></div>
+    </SidebarInset>
   </SidebarProvider>
 </template>
 <script setup>
@@ -17,7 +23,8 @@
         middleware: ['auth']
     })
     import AppSidebar from '@/components/AppSidebar.vue'
-    import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar'
+    import { SidebarProvider, SidebarTrigger, SidebarInset } from '@/components/ui/sidebar'
+    import { Separator } from '@/components/ui/separator'
 
     const defaultOpen = useCookie('sidebar_state')
 </script>

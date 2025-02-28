@@ -32,7 +32,9 @@
             </Card>
         </ClientOnly>
         <!-- langs choise -->
-        <div class="w-[350px] flex justify-end">
+        <div class="w-[350px] flex justify-end gap-2">
+            <DarkMode class="my-auto"/>
+            <Separator orientation="vertical" class="h-8 my-auto" />
             <SelectLang/>
         </div>
     </div>
@@ -44,6 +46,8 @@
     import { Button } from "@/components/ui/button";
     import { Input } from "@/components/ui/input";
     import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+    import { Separator } from '@/components/ui/separator'
+
     import type { userForm } from "@/utils/types";
       
     const form = reactive<userForm>({
