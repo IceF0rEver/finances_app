@@ -19,5 +19,11 @@
         "en": "English",
         "fr": "Français",
         "select" : "Choisir une langue"
+    },
+    "sidebar" : {
+        "menu" : {
+            "budget" : "Budget",
+            "subscription" : "Abonnement"
+        }
     }
 }

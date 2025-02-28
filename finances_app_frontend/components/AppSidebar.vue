@@ -30,17 +30,17 @@ import { Calendar, HandCoins } from "lucide-vue-next"
 import {Sidebar,SidebarContent,SidebarGroup,SidebarGroupContent,SidebarMenu,SidebarMenuButton,SidebarMenuItem,SidebarFooter} from "@/components/ui/sidebar"
 import type { userAuth } from "~/utils/types";
 
+const { t } = useI18n();
 const userAuth = useCookie<userAuth>('user-auth');
 
-// Menu items.
 const items = [
       {
-        title: "Budget",
+        title: t('sidebar.menu.budget'),
         url: "#",
         icon: HandCoins,
     },
     {
-        title: "Abonnement",
+        title: t('sidebar.menu.subscription'),
         url: "#",
         icon: Calendar,
     },
