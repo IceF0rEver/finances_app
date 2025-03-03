@@ -5,23 +5,23 @@
         <ClientOnly>
             <Card class="w-[350px]">
                 <CardHeader>
-                    <CardTitle>{{ $t('auth.register') }}</CardTitle>
+                    <CardTitle>{{ $t('auth.title.register') }}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form @submit.prevent="submit" class="space-y-4">
                         <p v-if="errorMessage" class="text-red-500 text-sm">{{ errorMessage }}</p>
 
-                        <Input v-model="form.name" :placeholder="$t('auth.name')" required />
-                        <Input v-model="form.email" type="email" :placeholder="$t('auth.email')" required />
-                        <Input v-model="form.password" type="password" :placeholder="$t('auth.password')" required />
-                        <Input v-model="form.password_confirmation" type="password" :placeholder="$t('auth.confirmPassword')" required />
+                        <Input v-model="form.name" :placeholder="$t('auth.placeholder.name')" required />
+                        <Input v-model="form.email" type="email" :placeholder="$t('auth.placeholder.email')" required />
+                        <Input v-model="form.password" type="password" :placeholder="$t('auth.placeholder.password')" required />
+                        <Input v-model="form.password_confirmation" type="password" :placeholder="$t('auth.placeholder.confirmPassword')" required />
 
                     
-                        <Button type="submit" class="w-full">{{ $t('auth.register_submit') }}</Button>
+                        <Button type="submit" class="w-full">{{ $t('auth.button.registerSubmit') }}</Button>
                     </form>
                     <p class="text-sm text-center mt-4">
                         <span class="text-blue-500 cursor-pointer">
-                            <NuxtLink :to="$localePath('index')"> {{ $t('auth.haveAccount') }} </NuxtLink>
+                            <NuxtLink :to="$localePath('index')"> {{ $t('auth.link.haveAccount') }} </NuxtLink>
                         </span>
                     </p>
                 </CardContent>
@@ -31,7 +31,9 @@
         <div class="w-[350px] flex justify-end gap-2">
             <DarkMode class="my-auto"/>
             <Separator orientation="vertical" class="h-8 my-auto" />
-            <SelectLang/>
+            <div class="w-[180px]">
+              <SelectLang/>
+            </div>
         </div>
     </div>
 </template>
@@ -61,7 +63,7 @@
         errorMessage.value = '';
 
         if (form.password !== form.password_confirmation) {
-            errorMessage.value = t('auth.passwordMismatch');
+            errorMessage.value = t('auth.error.passwordMismatch');
             return;
         };
 

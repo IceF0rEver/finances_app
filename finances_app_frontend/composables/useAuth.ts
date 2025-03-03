@@ -6,28 +6,31 @@ export default function useAuth() {
     const localePath = useLocalePath();
     const router = useRouter();
 
-    const user = useState('auth-user', () => null);
     const userAuth = useCookie<userAuth | null>('user-auth');
 
     async function login(userForm: userForm) {
         return csrf()
-            .then(() => {
-                return api.post("/login", {
+            .then(async () => {
+                return api.post("/api/login", {
                     email: userForm.email,
                     password: userForm.password,
-                }).then(({ data }) => {
-                    me();
-                })
+                }).then(async () => {
+                    api.get("/api/user").then(({ data }) => {
+                        userAuth.value = data;
+                        router.push(localePath('dashboard'));
+                    })
+                });
             })
             .catch(err => {
+                userAuth.value = null;
                 // console.log(err.response?.data?.message); 
-                return Promise.reject(t('auth.error'));
+                return Promise.reject(t('auth.error.message'));
             });
     };
     async function register(userForm: userForm) {
         return csrf()
             .then(() => {
-                return api.post("/register", {
+                return api.post("/api/register", {
                     name: userForm.name,
                     email: userForm.email,
                     password: userForm.password,
@@ -36,32 +39,38 @@ export default function useAuth() {
             })
             .catch(err => {
                 // console.log(err.response?.data?.message); 
-                return Promise.reject(t('auth.error'));
+                return Promise.reject(t('auth.error.message'));
             });
     };
-    async function me() {
-        return api.get("/api/user").then(({ data }) => {
-            user.value = data;
-            userAuth.value = data;
-            router.push(localePath('dashboard'));
-        })
-        .catch(err => {
-            user.value = null;
-            userAuth.value = null;
-            // console.log(err.response?.data?.message); 
-            return Promise.reject(t('auth.error'));
-        });
+    async function update(userForm: userForm) {
+        return csrf()
+            .then(async () => {
+                return api.patch("/api/user/update", {
+                    name: userForm.name,
+                    email: userForm.email,
+                    password: userForm.password,
+                    password_confirmation: userForm.password_confirmation,
+                }).then(async () => {
+                    api.get("/api/user").then(({ data }) => {
+                        userAuth.value = data;
+                    })
+                    return Promise.resolve(t('auth.success.message'));
+                });
+            })
+            .catch(err => {
+                console.log(err.response?.data?.message); 
+                return Promise.reject(t('auth.error.message'));
+            });
     };
     async function logout() {
         return api.post("/api/logout").then(() => {
-            user.value = null;
             userAuth.value = null;
             router.push(localePath('index'));
         })
         .catch(err => {
             // console.log(err.response?.data?.message); 
-            return Promise.reject(t('auth.error'));
+            return Promise.reject(t('auth.error.message'));
         });
     }
-    return { login, register, me, logout };
+    return { login, register, logout, update };
 }

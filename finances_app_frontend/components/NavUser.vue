@@ -41,15 +41,16 @@
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
             <DropdownMenuItem>
-              <BadgeCheck />
-              Account
+              <Icon name="lucide:settings-2"/>
+              <NuxtLink :to="$localePath('/dashboard/setting')">  {{ $t('sidebar.user.setting') }} </NuxtLink>
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
           <DropdownMenuItem>
             <!-- <LogOut /> -->
+            <Icon name="lucide:log-out"/>
             <form @submit.prevent="submit" class="space-y-4">
-              <button type="submit" class="" >{{ $t('auth.logout') }}</button>
+              <button type="submit" class="" >{{ $t('auth.button.logout') }}</button>
             </form>
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -58,10 +59,10 @@
   </SidebarMenu>
 </template>
 <script setup lang="ts">
+    import { ChevronsUpDown } from "lucide-vue-next"
     import {Avatar,AvatarFallback,AvatarImage,} from '@/components/ui/avatar'
     import {DropdownMenu,DropdownMenuContent,DropdownMenuGroup,DropdownMenuItem,DropdownMenuLabel,DropdownMenuSeparator,DropdownMenuTrigger,} from '@/components/ui/dropdown-menu'
     import {SidebarMenu,SidebarMenuButton,SidebarMenuItem,useSidebar,} from '@/components/ui/sidebar'
-    import {BadgeCheck,ChevronsUpDown} from 'lucide-vue-next'
     import type { userAuth } from '~/utils/types';
 
     const { logout } = useAuth();

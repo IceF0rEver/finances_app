@@ -5,14 +5,14 @@
         <ClientOnly>
             <Card class="w-[350px]">
                 <CardHeader>
-                    <CardTitle>{{ $t('auth.login') }}</CardTitle>
+                    <CardTitle>{{ $t('auth.title.login') }}</CardTitle>
                 </CardHeader>
                 <CardContent>
                     <form @submit.prevent="submit" class="space-y-4">
                         <p v-if="errorMessage" class="text-red-500 text-sm">{{ errorMessage }}</p>
 
-                        <Input v-model="form.email" type="email" :placeholder="$t('auth.email')" required />
-                        <Input v-model="form.password" type="password" :placeholder="$t('auth.password')" required />
+                        <Input v-model="form.email" type="email" :placeholder="$t('auth.placeholder.email')" required />
+                        <Input v-model="form.password" type="password" :placeholder="$t('auth.placeholder.password')" required />
 
                         <!-- <p class="text-xs text-right ">
                             <span  class="text-blue-500 cursor-pointer">
@@ -20,11 +20,11 @@
                             </span>
                         </p> -->
                     
-                        <Button type="submit" class="w-full" >{{ $t('auth.submit') }}</Button>
+                        <Button type="submit" class="w-full" >{{ $t('auth.button.submit') }}</Button>
                     </form>
                     <p class="text-sm text-center mt-4">
                         <span class="text-blue-500 cursor-pointer">
-                            <NuxtLink :to="$localePath('register')"> {{ $t('auth.noAccount') }} </NuxtLink>
+                            <NuxtLink :to="$localePath('register')"> {{ $t('auth.link.noAccount') }} </NuxtLink>
 
                         </span>
                     </p>
@@ -35,7 +35,9 @@
         <div class="w-[350px] flex justify-end gap-2">
             <DarkMode class="my-auto"/>
             <Separator orientation="vertical" class="h-8 my-auto" />
-            <SelectLang/>
+            <div class="w-[180px]">
+              <SelectLang/>
+            </div>
         </div>
     </div>
 </template>

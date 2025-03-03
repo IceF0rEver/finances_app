@@ -1,6 +1,6 @@
 <template>
     <Select v-model="selectedLocale" @update:modelValue="setLocale(selectedLocale)">
-        <SelectTrigger class="w-[180px]">
+        <SelectTrigger>
             <SelectValue :placeholder="$t('langs.select')" />
         </SelectTrigger>
         <SelectContent>

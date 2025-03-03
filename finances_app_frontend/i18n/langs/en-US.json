@@ -1,19 +1,43 @@
 {
-    "auth" : {
-        "login": "Log in",
-        "password": "Password",
-        "confirmPassword" : "Confirm Password",
-        "passwordMismatch" : "Mismatch Password",
-        "submit": "Sign in",
-        "register": "Sign up",
-        "name": "Name",
-        "email": "Email address",
-        "noAccount": "No account?",
-        "haveAccount": "I have an account!",
-        "register_submit": "Create my account",
-        "error": "An error occurred",
-        "forgotPassword": "Forgot password?",
-        "logout": "Log out"
+    "auth": {
+        "label": {
+            "name": "Name",
+            "email": "Email Address",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "confirmNewPassword": "Confirm New Password",
+            "newPassword": "New Password"
+        },
+        "placeholder": {
+            "name": "Name",
+            "email": "Email Address",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "confirmNewPassword": "Confirm New Password",
+            "newPassword": "New Password"
+        },
+        "button": {
+            "logout": "Logout",
+            "registerSubmit": "Create My Account",
+            "submit": "Login",
+            "update" : "Update"
+        },
+        "link": {
+            "forgotPassword": "Forgot Password?",
+            "haveAccount": "I have an account!",
+            "noAccount": "No account?"
+        },
+        "error": {
+            "message": "An error occurred!",
+            "passwordMismatch": "Password mismatch"
+        },
+        "success" : {
+            "message": "Changes applied!"
+        },
+        "title": {
+            "register": "Register",
+            "login": "Login"
+        }
     },
     "langs" : {
         "en": "English",
@@ -21,9 +45,32 @@
         "select" : "choose a language"
     },
     "sidebar" : {
+        "user" : {
+            "setting" : "Settings",
+            "account": "Account",
+            "appearance" : "Appearance"
+        },
+        "label" : "Finance App",
         "menu" : {
             "budget" : "Budget",
             "subscription" : "Subscription"
+        }
+    },
+    "setting" : {
+        "title" : {
+            "setting" : "Settings",
+            "account" : "Account",
+            "appearance" : "Appearance",
+            "language" : "Language",
+            "theme" : "Theme",
+            "changePassword" : "Change your password?"
+        },
+        "description": {
+            "setting" : "Manage your account settings and preferences.",
+            "account" : "Update your account settings.",
+            "appearance" : "Set your preferred language and color mode.",
+            "language" : "Set the language you want to use in the dashboard.",
+            "theme" : "Select the color theme you want to use in the dashboard."
         }
     }
 }
