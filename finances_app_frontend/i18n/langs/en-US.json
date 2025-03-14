@@ -52,8 +52,14 @@
         },
         "label" : "Finance App",
         "menu" : {
-            "budget" : "Budget",
-            "subscription" : "Subscription"
+            "name" :{
+                "budget" : "Budget",
+                "subscription" : "Subscription"
+            },
+            "description" : {
+                "budget" : "Visually manage the distribution of your expenses.",
+                "subscription" : "Subscription"
+            }
         }
     },
     "setting" : {
@@ -71,6 +77,56 @@
             "appearance" : "Set your preferred language and color mode.",
             "language" : "Set the language you want to use in the dashboard.",
             "theme" : "Select the color theme you want to use in the dashboard."
+        }
+    },
+    "budget" : {
+        "form" : {
+            "title" : {
+                "incomes" : "Incomes",
+                "expenses" : "Expenses"
+            },
+            "description": {
+                "incomes": "Enter your different sources of income.",
+                "expenses": "Enter your different expenses."
+            },
+            "label" : {
+                "name" : "Name",
+                "amount" : "Amount",
+                "categoryName": "Category name"
+            }
+        }, 
+       "error": {
+            "input": {
+                "incomeMinOne": "Please add at least one source of income to proceed to the next step.",
+                "incomeInput": "Please fill in all fields to proceed to the next step.",
+                "categoryInput": "Please fill in all fields category name to add an expense source.",
+                "expenseInput" : "Please fill in all the fields to add an expense source.",
+                "expenseMinOne" : "Please add at least one source of expense to proceed to the next step."
+            }
+        },
+        "button" : {
+            "next" : "Next",
+            "previous" : "Previous",
+            "addIncome": "Add a source of income",
+            "addExpense" : "Add a source of expense",
+            "addCategoryExpense" : "Add a category",
+            "sankeyChart" : "Discover my budget",
+            "edit" : "Edit",
+            "delete" : "Delete",
+            "saveChange" : "Save change"
+        },
+        "update": {
+            "title": "Update Budget",
+            "description": "You can now easily adjust your expense and income categories, offering more flexibility in managing your monthly budget.",
+            "success": "The changes have been successfully saved.",
+            "error": "An error occurred while saving the changes."
+        },
+        "delete": {
+            "title": "Delete Budget",
+            "description": "Are you sure you want to delete your budget? This action is irreversible, and all associated data will be lost.",
+            "back": "Cancel",
+            "confirm": "Continue",
+            "success": "Your budget has been successfully deleted."
         }
     }
 }

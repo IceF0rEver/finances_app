@@ -11,3 +11,26 @@ export interface userAuth {
     email_verified_at : string | null,
     created_at : string,
 }
+
+export interface itemExpense {
+    id: number;
+    from: string;
+    to: string;
+    amount: number;
+    type: string;
+}
+
+export interface itemsExpense {
+    id : number;
+    key: string;
+    expense: itemExpense[];
+}
+
+export interface sankeyDatas {
+    id?: number;
+    from: string;
+    to: string;
+    amount: number;
+    type: string;
+    parent_id?: number;
+}

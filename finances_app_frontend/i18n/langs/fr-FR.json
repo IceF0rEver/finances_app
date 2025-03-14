@@ -52,28 +52,85 @@
         },
         "label" : "App Financière",
         "menu" : {
-            "budget" : "Budget",
-            "subscription" : "Abonnement"
+            "name" :{
+                "budget" : "Budget",
+                "subscription" : "Abonnement"
+            },
+            "description" : {
+                "budget" : "Gérez visuellement la répartition de vos dépenses.",
+                "subscription" : "Abonnement"
+            }
         }
     },
     "setting": {
-    "title": {
-        "setting": "Paramètres",
-        "account": "Compte",
-        "appearance": "Apparence",
-        "language" : "Langue",
-        "theme" : "Thème",
-        "changePassword" : "Changer votre mot de passe ?"
+        "title": {
+            "setting": "Paramètres",
+            "account": "Compte",
+            "appearance": "Apparence",
+            "language" : "Langue",
+            "theme" : "Thème",
+            "changePassword" : "Changer votre mot de passe ?"
 
+        },
+        "description": {
+            "setting": "Gérez les paramètres et les préférences de votre compte.",
+            "account": "Mettez à jour les paramètres de votre compte.",
+            "appearance": "Choisissez votre langue et mode de couleur préférés.",
+            "language" : "Choisissez la langue que vous souhaitez utiliser dans le tableau de bord.",
+            "theme" : "Choisissez votre thème couleur que vous souhaitez utiliser dans le tableau de bord."
+
+        }
     },
-    "description": {
-        "setting": "Gérez les paramètres et les préférences de votre compte.",
-        "account": "Mettez à jour les paramètres de votre compte.",
-        "appearance": "Choisissez votre langue et mode de couleur préférés.",
-        "language" : "Choisissez la langue que vous souhaitez utiliser dans le tableau de bord.",
-        "theme" : "Choisissez votre thème couleur que vous souhaitez utiliser dans le tableau de bord."
+    "budget" : {
+        "form" : {
+            "title" : {
+                "incomes" : "Revenus",
+                "expenses" : "Dépenses"
+            },
+            "description" : {
+                "incomes" : "Inscrivez vos différents revenus.",
+                "expenses" : "Inscrivez vos différentes dépenses."
+            },
+            "label" : {
+                "name" : "Nom",
+                "amount" : "Montant",
+                "categoryName": "Nom de la catégorie"
+            }
+        }, 
+        "error" : {
+            "input" : {
+                "incomeMinOne" : "Veuillez ajouter au moins une source de revenu pour passer à l'étape suivante.",
+                "incomeInput" : "Veuillez remplir tous les champs pour passer à l'étape suivante.",
+                "categoryInput" : "Veuillez remplir tous les champs nom de la catégorie pour ajouter une source de dépense.",
+                "expenseInput" : "Veuillez remplir tous les champs pour ajouter une source de dépense.",
+                "expenseMinOne" : "Veuillez ajouter au moins une source de dépense pour passer à l'étape suivante."
 
+          }  
+        },
+        "button" : {
+            "next" : "Suivant",
+            "previous" : "Précédent",
+            "addIncome" : "Ajouter une source de revenu",
+            "addExpense" : "Ajouter une source de dépense",
+            "addCategoryExpense" : "Ajouter une catégorie",
+            "sankeyChart" : "Découvrir mon budget",
+            "edit" : "Modifier",
+            "delete" : "Supprimer",
+            "saveChange" : "Sauvegarder les changements"
+        },
+        "update" : {
+            "title" : "Modification de votre budget.",
+            "description" : "ous pouvez désormais ajuster facilement vos catégories de dépenses et revenus, offrant plus de flexibilité pour gérer votre budget mensuel.",
+            "success" : "Les modifications ont été enregistrées avec succès.",
+            "error" : "Une erreur est survenue lors de l'enregistrement des modifications."
+        },
+        "delete": {
+            "title": "Suppression de votre Budget",
+            "description": "Êtes-vous sûr de vouloir supprimer votre budget ? Cette action est irréversible et toutes les données associées seront perdues.",
+            "back": "Retour",
+            "confirm": "Confirmer",
+            "success" : "Votre budget a été supprimer avec succès."
+        }
     }
-}
 
 }

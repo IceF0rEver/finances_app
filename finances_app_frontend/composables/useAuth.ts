@@ -63,14 +63,17 @@ export default function useAuth() {
             });
     };
     async function logout() {
-        return api.post("/api/logout").then(() => {
-            userAuth.value = null;
-            router.push(localePath('index'));
-        })
-        .catch(err => {
-            // console.log(err.response?.data?.message); 
-            return Promise.reject(t('auth.error.message'));
-        });
-    }
+        return csrf()
+            .then(async () => {
+                return api.post("/api/logout").then(() => {
+                    userAuth.value = null;
+                    router.push(localePath('index'));
+                })
+                .catch(err => {
+                    // console.log(err.response?.data?.message); 
+                    return Promise.reject(t('auth.error.message'));
+                });
+            })
+    };
     return { login, register, logout, update };
 }
