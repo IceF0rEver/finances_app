@@ -8,10 +8,10 @@
           <SidebarMenu>
               <SidebarMenuItem v-for="item in items" :key="item.title">
                 <SidebarMenuButton asChild>
-                    <a :href="item.url">
-                      <component :is="item.icon" />
-                      <span>{{item.title}}</span>
-                    </a>
+                  <NuxtLink :to="$localePath('/dashboard/' + item.url)">
+                    <Icon :name="item.icon"/>
+                    {{item.title}} 
+                  </NuxtLink>
                 </SidebarMenuButton>
               </SidebarMenuItem>
           </SidebarMenu>
@@ -26,7 +26,6 @@
 </template>
 <script setup lang="ts">
 
-import { Calendar, HandCoins } from "lucide-vue-next"
 import {Sidebar,SidebarContent,SidebarGroup,SidebarGroupContent,SidebarMenu,SidebarMenuButton,SidebarMenuItem,SidebarFooter} from "@/components/ui/sidebar"
 import type { userAuth } from "~/utils/types";
 
@@ -35,14 +34,14 @@ const userAuth = useCookie<userAuth>('user-auth');
 
 const items = [
       {
-        title: t('sidebar.menu.budget'),
-        url: "#",
-        icon: HandCoins,
+        title: t('sidebar.menu.name.budget'),
+        url: "budget",
+        icon: 'lucide:hand-coins',
     },
     {
-        title: t('sidebar.menu.subscription'),
+        title: t('sidebar.menu.name.subscription'),
         url: "#",
-        icon: Calendar,
+        icon: 'lucide:calendar',
     },
 ];
 </script>
