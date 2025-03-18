@@ -19,6 +19,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/', [SankeyDataController::class, 'index']);
         Route::post('/', [SankeyDataController::class, 'store']);
         Route::delete('/', [SankeyDataController::class, 'destroy']);
+        Route::patch('/update', [SankeyDataController::class, 'update'])->name('update');
     });
     
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
