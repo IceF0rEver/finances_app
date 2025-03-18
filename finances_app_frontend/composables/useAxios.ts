@@ -11,13 +11,11 @@ export default function useAxios() {
     })
 
     const csrf = async () => {
-      try {
-        await api.get('sanctum/csrf-cookie');
-        // console.log('CSRF token récupéré et stocké dans les cookies.');
-      } catch (error) {
-        console.error('Erreur lors de la récupération du CSRF token:', error);
-      }
-    }
+      await $fetch('sanctum/csrf-cookie', {
+        baseURL: rtConfig.public.API_URL,
+        method: 'GET',
+      });
+    };
 
     return {
         api, csrf

@@ -17,27 +17,27 @@
     import { Separator } from "@/components/ui/separator";
     import type { sankeyDatas } from "~/utils/types";
 
+    const sankeyData = useState<sankeyDatas[]>('sankey-data', () => []);
+    const sankeyDataFromDb = ref<sankeyDatas[]>([]);
     const isOpenInput = ref(false);
-    const sankeyData = ref<sankeyDatas[]>([]);
-    const sankeyDataFromDb = ref<any>([]);
 
     const { getSankeyData, setSankeyData } = useSankey();
 
     if (sankeyData.value.length === 0) {
         sankeyDataFromDb.value = await getSankeyData();
-        if (sankeyDataFromDb.value.data.length === 0) {
+        if (sankeyDataFromDb.value.length === 0) {
             isOpenInput.value = true;
         } else {
-            sankeyData.value = sankeyDataFromDb.value.data;
+            sankeyData.value = sankeyDataFromDb.value;
         }
     }
 
     const handleSankeyData = async (data: sankeyDatas[]) => {
         sankeyData.value = data;
-        if (sankeyData.value.length != 0){
+        if ((isOpenInput.value === true) && (sankeyDataFromDb.value.length === 0)) {
             await setSankeyData(sankeyData.value);
             isOpenInput.value = false;
-        } else {
+        } else if (sankeyData.value.length === 0) {
             isOpenInput.value = true;
         }
     };

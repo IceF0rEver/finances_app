@@ -89,10 +89,10 @@
                     </div>
             </Card>
             <div v-if="props.isInitSankey" class="pt-3 flex justify-end">
-                <Button @click="updateSankeyData()">{{ $t('budget.button.sankeyChart')}}</Button>
+                <Button @click="updateSankeyChartData()">{{ $t('budget.button.sankeyChart')}}</Button>
             </div>
             <div v-if="!props.isInitSankey" class="pt-3 flex justify-end">
-                <Button v-if="TabValue==='expenses'" @click="updateSankeyData()">{{ $t('budget.button.saveChange')}}</Button>
+                <Button v-if="TabValue==='expenses'" @click="updateSankeyChartData()">{{ $t('budget.button.saveChange')}}</Button>
             </div>
         </TabsContent>
     </Tabs>
@@ -113,7 +113,7 @@
         isInitSankey: boolean;
     }>();
     
-    const { removeSankeyData, setSankeyData } = useSankey();
+    const { removeSankeyData, setSankeyData, updateSankeyData } = useSankey();
     const { t } = useI18n();
     const { toast } = useToast();
     
@@ -173,7 +173,7 @@
         }
     };
 
-    const updateSankeyData = async () => {
+    const updateSankeyChartData = async () => {
         errorMessage.value = "";
         if ((data.value.length === 0) || ((!data.value.some(item => item.type === 'income')) || (!data.value.some(item => item.type === 'expense')))) {
             errorMessage.value = t('budget.error.input.incomeInput');
@@ -198,10 +198,9 @@
         } else {
             try {
                 emit("closeSheet");
-                toastMessage.value = t('budget.update.success');
                 emit('sankeyData', data.value);
-                await removeSankeyData();
-                await setSankeyData(data.value);
+                await updateSankeyData(data.value);
+                toastMessage.value = t('budget.update.success');
             } catch {
                 toastMessage.value = t('budget.update.error');
             }
