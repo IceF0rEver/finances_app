@@ -14,6 +14,7 @@ export default function useAxios() {
       await $fetch('sanctum/csrf-cookie', {
         baseURL: rtConfig.public.API_URL,
         method: 'GET',
+        credentials: 'include',
       });
     };
 

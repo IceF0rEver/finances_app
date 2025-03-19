@@ -24,11 +24,14 @@
     const { getSankeyData, setSankeyData } = useSankey();
 
     if (sankeyData.value.length === 0) {
-        sankeyDataFromDb.value = await getSankeyData();
-        if (sankeyDataFromDb.value.length === 0) {
-            isOpenInput.value = true;
-        } else {
-            sankeyData.value = sankeyDataFromDb.value;
+        const { data, pending, error } = await getSankeyData();
+        if (data !== null) {
+            sankeyDataFromDb.value = data;
+            if (sankeyDataFromDb.value.length === 0) {
+                isOpenInput.value = true;
+            } else {
+                sankeyData.value = sankeyDataFromDb.value;
+            }
         }
     }
 

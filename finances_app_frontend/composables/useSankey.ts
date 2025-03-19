@@ -5,21 +5,25 @@ export default function useAuth() {
     const { api, csrf } = useAxios();
     const localePath = useLocalePath();
     const router = useRouter();
-
+    const { start, finish } = useLoadingIndicator(); 
 
     async function getSankeyData() {
-        const { data, pending, error } = await useFetch('/api/sankey', {
+        start();
+        const { data, pending, error } = await useFetch<sankeyDatas[]>('/api/sankey', {
             baseURL: rtConfig.public.API_URL,
             method: 'GET',
             credentials: 'include'
         });
-        return data.value;
+        finish();
+        return { data: data.value, pending, error };
     };
 
-    async function setSankeyData(data: sankeyDatas[]) {
+    async function setSankeyData(data: sankeyDatas[]) { 
         try {
+            start();
             await csrf();
             await api.post("/api/sankey", { data });
+            finish();
         } catch (err : any) {
             console.log(err.response?.data?.message);
             // return Promise.reject(t('auth.error.message'));
@@ -28,17 +32,22 @@ export default function useAuth() {
 
     async function updateSankeyData(data: sankeyDatas[]) {
         try {
+            start();
             await csrf();
             await api.patch("/api/sankey/update", { data });
+            finish();
         } catch (err : any) {
             console.log(err.response?.data?.message);
             // return Promise.reject(t('auth.error.message'));
         }
+
     };
     async function removeSankeyData() {
         try {
+            start();
             await csrf();
             await api.delete("/api/sankey");
+            finish();
         } catch (err : any) {
             console.log(err.response?.data?.message);
             // return Promise.reject(t('auth.error.message'));
