@@ -26,20 +26,3 @@ class SankeyData extends Model
         return $this->hasMany(SankeyData::class, 'parent_id');
     }
 }
-// <?php
-// namespace App\Models;
-
-// use Illuminate\Database\Eloquent\Factories\HasFactory;
-// use Illuminate\Database\Eloquent\Model;
-
-// class SankeyData extends Model
-// {
-//     use HasFactory;
-
-//     protected $fillable = ['from', 'to', 'amount', 'user_id'];
-
-//     public function user()
-//     {
-//         return $this->belongsTo(User::class);
-//     }
-// }
