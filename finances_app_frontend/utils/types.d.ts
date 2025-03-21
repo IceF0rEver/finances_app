@@ -34,3 +34,7 @@ export interface sankeyDatas {
     type: string;
     parent_id?: number;
 }
+
+export interface userAuthError {
+    [key: string]: string[];
+}

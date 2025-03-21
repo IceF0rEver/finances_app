@@ -1,4 +1,4 @@
-import type { userForm, userAuth } from '@/utils/types';
+import type { userForm, userAuth, userAuthError, sankeyDatas } from '@/utils/types';
 
 export default function useAuth() {
     const { t } = useI18n();
@@ -6,10 +6,13 @@ export default function useAuth() {
     const localePath = useLocalePath();
     const router = useRouter();
     const rtConfig = useRuntimeConfig()
-    const { start, finish } = useLoadingIndicator(); 
-
+    const { start, finish } = useLoadingIndicator();
+    const { locale } = useI18n(); 
 
     const userAuth = useCookie<userAuth | null>('user-auth');
+    const userAuthError = useState<userAuthError>('user-auth');
+    const sankeyData = useState<sankeyDatas[]>('sankey-data');
+
     
     async function login(userForm: userForm) {
         try {
@@ -22,8 +25,9 @@ export default function useAuth() {
             await getUserAuth();
             finish();
             router.push(localePath('dashboard'));
-        } catch (err) {
-            return Promise.reject(t('auth.error.message'));
+        } catch (error : any) {
+            userAuthError.value = error.response?.data?.errors;
+            finish();
         }
     };
     async function register(userForm: userForm) {
@@ -37,9 +41,11 @@ export default function useAuth() {
                 password_confirmation: userForm.password_confirmation,
             });
             finish();
-            router.push(localePath('index'));
-        } catch (err) {
-            return Promise.reject(t('auth.error.message'));
+            await getUserAuth();
+            router.push(localePath('dashboard'));
+        } catch (error : any) {
+            userAuthError.value = error.response?.data?.errors;
+            finish();
         }
     };
 
@@ -59,8 +65,9 @@ export default function useAuth() {
             }
             finish();
             return Promise.resolve(t('auth.success.message'));
-        } catch (err) {
-            return Promise.reject(t('auth.error.message'));
+        } catch (error : any) {
+            userAuthError.value = error.response?.data?.errors;
+            finish();
         }
     };
 
@@ -69,16 +76,20 @@ export default function useAuth() {
             await csrf();
             await api.post("/api/logout");
             userAuth.value = null;
+            sankeyData.value = [];
             router.push(localePath('index'));
-        } catch (err) {
-            return Promise.reject(t('auth.error.message'));
+        } catch (error : any) {
+            userAuthError.value = error.response?.data?.errors;
         }
     };
 
     async function getUserAuth() {
         const data = await $fetch<userAuth>('/api/user', {
             baseURL: rtConfig.public.API_URL,
-            credentials: 'include'
+            credentials: 'include',
+            headers : {
+                'Accept-Language' : locale.value,
+              }
         });
         userAuth.value = data;
     };

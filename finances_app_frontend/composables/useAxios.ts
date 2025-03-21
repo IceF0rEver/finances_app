@@ -2,12 +2,16 @@ import axios from "axios";
 
 export default function useAxios() {
 
-    const rtConfig = useRuntimeConfig()
-
+    const rtConfig = useRuntimeConfig();
+    const { locale } = useI18n();
+    
     let api = axios.create({
         baseURL: rtConfig.public.API_URL,
         withCredentials: true,
         withXSRFToken: true,
+        headers : {
+          'Accept-Language' : locale.value,
+        }
     })
 
     const csrf = async () => {
@@ -15,6 +19,9 @@ export default function useAxios() {
         baseURL: rtConfig.public.API_URL,
         method: 'GET',
         credentials: 'include',
+        headers : {
+          'Accept-Language' : locale.value,
+        }
       });
     };
 
