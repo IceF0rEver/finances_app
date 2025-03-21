@@ -12,7 +12,7 @@
                         <Input v-model="form.name" required />
                         <p v-if="userAuthError?.name" class="text-red-500 text-xs">{{ userAuthError.name[0] }}</p>
                     </div>
-    
+
                     <div>
                         <Label for="email">{{ $t('auth.label.email')}}</Label>
                         <Input v-model="form.email" type="email" required />
@@ -31,7 +31,7 @@
                     <Button type="submit" class="w-full">{{ $t('auth.button.registerSubmit') }}</Button>
                 </form>
                 <p class="text-sm text-center mt-4">
-                    <span @click="emit('handleIsLogin'), userAuthError = [];" class="text-blue-500 cursor-pointer">
+                    <span @click="emit('handleIsLogin'), userAuthError = {};" class="text-blue-500 cursor-pointer">
                         {{ $t('auth.link.haveAccount') }}
                     </span>
                 </p>
@@ -44,14 +44,12 @@
     import { Input } from "@/components/ui/input";
     import { Label } from '@/components/ui/label';
     import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-    import { Separator } from '@/components/ui/separator';
-
     import type { userForm, userAuthError } from "@/utils/types";
 
     const { register } = useAuth();
     const userAuthError = useState<userAuthError>('user-auth');
     const emit = defineEmits(["handleIsLogin"]);
-      
+
     const form = reactive<userForm>({
         name: '',
         email: '',
@@ -60,7 +58,7 @@
     });
 
     async function submit() {
-        userAuthError.value = [];
+        userAuthError.value = {};
         await register(form);
     };
 </script>

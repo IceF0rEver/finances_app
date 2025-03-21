@@ -27,7 +27,7 @@
                     <Button type="submit" class="w-full" >{{ $t('auth.button.submit') }}</Button>
                 </form>
                 <p class="text-sm text-center mt-4">
-                    <span @click=" emit('handleIsLogin'), userAuthError = [];" class="text-blue-500 cursor-pointer">
+                    <span @click=" emit('handleIsLogin'), userAuthError = {};" class="text-blue-500 cursor-pointer">
                        {{ $t('auth.link.noAccount') }}
                     </span>
                 </p>
@@ -40,8 +40,6 @@
     import { Input } from "@/components/ui/input";
     import { Label } from '@/components/ui/label';
     import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-    import { Separator } from '@/components/ui/separator'
-
     import type { userForm, userAuthError } from "@/utils/types";
 
     const { login } = useAuth();
@@ -56,7 +54,7 @@
     });
 
     async function submit() {
-        userAuthError.value = [];
+        userAuthError.value = {};
         await login(form); 
     };
 </script>
