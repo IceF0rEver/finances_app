@@ -43,7 +43,7 @@
     import type { userForm, userAuthError } from "@/utils/types";
 
     const { login } = useAuth();
-    const userAuthError = useState<userAuthError>('user-auth');
+    const userAuthError = useState<userAuthError>('user-auth-error');
     const emit = defineEmits(["handleIsLogin"]);
       
     const form = reactive<userForm>({

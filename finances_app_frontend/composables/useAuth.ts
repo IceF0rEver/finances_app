@@ -10,7 +10,7 @@ export default function useAuth() {
     const { locale } = useI18n(); 
 
     const userAuth = useCookie<userAuth | null>('user-auth');
-    const userAuthError = useState<userAuthError>('user-auth');
+    const userAuthError = useState<userAuthError>('user-auth-error');
     const sankeyData = useState<sankeyDatas[]>('sankey-data');
 
     
@@ -86,6 +86,7 @@ export default function useAuth() {
     async function getUserAuth() {
         const data = await $fetch<userAuth>('/api/user', {
             baseURL: rtConfig.public.API_URL,
+            method: 'GET',
             credentials: 'include',
             headers : {
                 'Accept-Language' : locale.value,
