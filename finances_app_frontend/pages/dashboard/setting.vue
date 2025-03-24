@@ -6,13 +6,13 @@
             <Separator class="my-4" />           
         </div>
         
-        <div class="grid grid-cols-5">
+        <div class="md:grid md:grid-cols-5">
             <!-- Sidebar -->
-            <div class="col-span-1">
+            <div class="md:col-span-1">
                 <SidebarContent>
                     <SidebarGroup>
                         <SidebarGroupContent>
-                            <SidebarMenu>
+                            <SidebarMenu  class="flex-row md:flex-col">
                                 <SidebarMenuItem v-for="item in items" :key="item.key">
                                     <SidebarMenuButton asChild 
                                         :is-active="settingItemSelected === item.key"
@@ -28,7 +28,7 @@
             </div>
 
             <!-- Contenu dynamique -->
-            <div class="col-span-4">
+            <div class="md:col-span-4">
                 <Setting v-if="settingItemSelected === 'account'" />
                 <SettingAppearance v-if="settingItemSelected === 'appearance'" />
             </div>

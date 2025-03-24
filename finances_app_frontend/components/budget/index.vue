@@ -1,8 +1,12 @@
 <template>
-    <div>
-        <BudgetUpdateChart :data="props.data" @sankeyData="handleSankeyData"/>
-        <highchart :options="options" class="rounded-md" />
-   </div>
+    <div class="w-[calc(100vw-3rem)] md:w-full">
+        <div>
+            <BudgetUpdateChart :data="props.data" @sankeyData="handleSankeyData"/>
+            <div class="overflow-x-auto">
+                <highchart :options="options" class=" pt-12 min-w-[750px]" />
+            </div>
+        </div>
+    </div>
 </template>
 <script lang="ts" setup>
     import Highcharts from "highcharts";
@@ -18,14 +22,13 @@
         emit('sankeyData', data);
     };
     Sankey(Highcharts);
-    const options = computed(()=> ({
+    const options = computed(() => ({
         credits: {
-        enabled: false
+            enabled: false
         },
         title: {
-            text: 'Budget'
+            text: ''
         },
-
         subtitle: {
             enabled: false
         },
@@ -54,8 +57,13 @@
             curveFactor: 0.5,
             nodeWidth: 20,
             borderRadius: 0,
+        }],
+        responsive : {
+            rules: [{
+                condition: {
+                    minWidth: 700,
+                },
+            }],
         }
-    ],
-
     }));
 </script>

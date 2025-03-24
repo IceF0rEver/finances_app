@@ -5,11 +5,11 @@
             <p class="py-2">{{$t('sidebar.menu.description.budget')}}</p>
             <Separator class="my-4" />           
         </div>
-        <div v-if="isOpenInput" class="flex justify-center p-6">
+        <div v-if="isOpenInput" class="flex justify-center md:p-6">
             <BudgetManageChart :isInitSankey="true" @sankeyData="handleSankeyData" />
         </div>
         <div>
-            <BudgetSankeyChart v-if="!isOpenInput && sankeyData.length > 0" :data="sankeyData" @sankeyData="handleSankeyData"/>
+            <Budget v-if="!isOpenInput && sankeyData.length > 0" :data="sankeyData" @sankeyData="handleSankeyData"/>
         </div>
     </div>
  </template>
