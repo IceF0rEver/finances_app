@@ -8,13 +8,13 @@
         <div class="flex flex-col w-full gap-9">
             <div class="flex flex-col gap-2">
                 <Label>{{$t('setting.title.language')}}</Label>
-                <SelectLang />
+                <UtilsSelectLang />
                 <p class="text-sm opacity-60">{{$t('setting.description.language')}}</p>
             </div>
             <div class="flex flex-col gap-2">
                 <div class="flex flex-row gap-2">
                     <Label class="my-auto">{{$t('setting.title.theme')}} :</Label>
-                    <DarkMode />
+                    <UtilsDarkMode />
                 </div>
                 <p class="text-sm opacity-60">{{$t('setting.description.theme')}}</p>
             </div>
