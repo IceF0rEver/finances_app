@@ -6,44 +6,34 @@
             <Separator class="my-4" />           
         </div>
         <div v-if="isOpenInput" class="flex justify-center md:p-6">
-            <BudgetManageChart :isInitSankey="true" @sankeyData="handleSankeyData" />
+            <BudgetManageChart :isInitSankey="true" :data="sankeyData" />
         </div>
         <div>
-            <Budget v-if="!isOpenInput && sankeyData.length > 0" :data="sankeyData" @sankeyData="handleSankeyData"/>
+            <Budget v-if="!isOpenInput && sankeyData.length > 0" :data="sankeyData"/>
         </div>
     </div>
  </template>
 <script lang="ts" setup>
-    import { Separator } from "@/components/ui/separator";
-    import type { sankeyDatas } from "~/utils/types";
+import { Separator } from "@/components/ui/separator";
+import type { sankeyDatas } from "~/utils/types";
 
-    const sankeyData = useState<sankeyDatas[]>('sankey-data', () => []);
-    const sankeyDataFromDb = ref<sankeyDatas[]>([]);
-    const isOpenInput = ref(false);
+const { getSankeyData } = useSankey();
 
-    const { getSankeyData, setSankeyData } = useSankey();
+const sankeyData = useState<sankeyDatas[]>('sankey-data', () => []);
+const isOpenInput = useState<boolean>('sankey-is-open-input', () => false);
+const sankeyDataFromDb = ref<sankeyDatas[]>([]);
 
-    if (sankeyData.value.length === 0) {
-        const { data, pending, error } = await getSankeyData();
-        if (data !== null) {
-            sankeyDataFromDb.value = data;
-            if (sankeyDataFromDb.value.length === 0) {
-                isOpenInput.value = true;
-            } else {
-                sankeyData.value = sankeyDataFromDb.value;
-            }
+if (sankeyData.value.length === 0) {
+    const { data, pending, error } = await getSankeyData();
+    if (data !== null) {
+        sankeyDataFromDb.value = data;
+        if (sankeyDataFromDb.value.length === 0) {
+            isOpenInput.value = true;
+        } else {
+            sankeyData.value = sankeyDataFromDb.value;
         }
     }
-
-    const handleSankeyData = async (data: sankeyDatas[]) => {
-        sankeyData.value = data;
-        if ((isOpenInput.value === true) && (sankeyDataFromDb.value.length === 0)) {
-            await setSankeyData(sankeyData.value);
-            isOpenInput.value = false;
-        } else if (sankeyData.value.length === 0) {
-            isOpenInput.value = true;
-        }
-    };
+}
 </script>
 
 

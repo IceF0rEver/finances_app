@@ -1,10 +1,7 @@
 import type { sankeyDatas } from "~/utils/types";
 export default function useAuth() {
     const rtConfig = useRuntimeConfig();
-    const { t } = useI18n();
     const { api, csrf } = useAxios();
-    const localePath = useLocalePath();
-    const router = useRouter();
     const { start, finish } = useLoadingIndicator(); 
     const { locale } = useI18n();
 
@@ -32,7 +29,6 @@ export default function useAuth() {
         } catch (err : any) {
             finish();
             console.log(err.response?.data?.message);
-            // return Promise.reject(t('auth.error.message'));
         }
     };
 
@@ -45,7 +41,6 @@ export default function useAuth() {
         } catch (err : any) {
             finish();
             console.log(err.response?.data?.message);
-            // return Promise.reject(t('auth.error.message'));
         }
 
     };
@@ -58,7 +53,6 @@ export default function useAuth() {
         } catch (err : any) {
             finish();
             console.log(err.response?.data?.message);
-            // return Promise.reject(t('auth.error.message'));
         }
     };
    
