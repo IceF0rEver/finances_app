@@ -5,9 +5,7 @@
             <p class="py-2">{{$t('setting.description.setting')}}</p>
             <Separator class="my-4" />           
         </div>
-        
         <div class="md:grid md:grid-cols-5">
-            <!-- Sidebar -->
             <div class="md:col-span-1">
                 <SidebarContent>
                     <SidebarGroup>
@@ -15,8 +13,8 @@
                             <SidebarMenu  class="flex-row md:flex-col">
                                 <SidebarMenuItem v-for="item in items" :key="item.key">
                                     <SidebarMenuButton asChild 
-                                        :is-active="settingItemSelected === item.key"
-                                        @click="setActiveTab(item.key)"
+                                    :is-active="settingItemSelected === item.key"
+                                    @click="setActiveTab(item.key)"
                                     >
                                         <span>{{ item.title }}</span>
                                     </SidebarMenuButton>
@@ -26,8 +24,6 @@
                     </SidebarGroup>
                 </SidebarContent>
             </div>
-
-            <!-- Contenu dynamique -->
             <div class="md:col-span-4">
                 <Setting v-if="settingItemSelected === 'account'" />
                 <SettingAppearance v-if="settingItemSelected === 'appearance'" />

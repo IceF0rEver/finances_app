@@ -1,4 +1,3 @@
-
 <template>
     <Auth/>
 </template>
