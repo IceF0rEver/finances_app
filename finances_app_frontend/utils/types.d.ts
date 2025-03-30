@@ -38,3 +38,12 @@ export interface sankeyDatas {
 export interface userAuthError {
     [key: string]: string[];
 }
+
+export interface subscriptionDatas {
+    id?: number;
+    name: string;
+    amount: number;
+    recurrence: 'monthly' | 'annually'
+    execution_date: Date;
+    icon: string;
+}
