@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SankeyDataController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\UserController;
@@ -20,6 +21,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/', [SankeyDataController::class, 'store']);
         Route::delete('/', [SankeyDataController::class, 'destroy']);
         Route::patch('/update', [SankeyDataController::class, 'update'])->name('update');
+    });
+    Route::prefix('/subscription')->group(function () {
+        Route::get('/', [SubscriptionController::class, 'index']);
+        Route::post('/', [SubscriptionController::class, 'store']);
+        Route::delete('/{id}', [SubscriptionController::class, 'destroy']);
+        Route::patch('/update/{id}', [SubscriptionController::class, 'update'])->name('update');
     });
     
     Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
