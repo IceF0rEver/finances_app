@@ -1,4 +1,5 @@
 {
+    "welcome": "Bienvenue sur le Dashboard",
     "auth" : {
         "label" : {
             "name" : "Nom",
@@ -58,7 +59,7 @@
             },
             "description" : {
                 "budget" : "Gérez visuellement la répartition de vos dépenses.",
-                "subscription" : "Abonnement"
+                "subscription" : "Gérez visuellement la répartition de vos abonnements."
             }
         }
     },
@@ -120,7 +121,7 @@
         },
         "update" : {
             "title" : "Modification de votre budget.",
-            "description" : "ous pouvez désormais ajuster facilement vos catégories de dépenses et revenus, offrant plus de flexibilité pour gérer votre budget mensuel.",
+            "description" : "Vous pouvez désormais ajuster facilement vos catégories de dépenses et revenus, offrant plus de flexibilité pour gérer votre budget mensuel.",
             "success" : "Les modifications ont été enregistrées avec succès.",
             "error" : "Une erreur est survenue lors de l'enregistrement des modifications."
         },
@@ -129,7 +130,75 @@
             "description": "Êtes-vous sûr de vouloir supprimer votre budget ? Cette action est irréversible et toutes les données associées seront perdues.",
             "back": "Retour",
             "confirm": "Confirmer",
-            "success" : "Votre budget a été supprimer avec succès."
+            "success" : "Votre budget a été supprimer avec succès.",
+            "error" : "Une erreur est survenue lors de la suppression du budget."
+        },
+        "add" : {
+            "success" : "Le budget a été ajouté avec succès.",
+            "error" : "Une erreur est survenue lors de l'ajout du budget."
+        }
+    },
+    "subscription" : {
+        "title": {
+            "calendar" : "Calendrier",
+            "yourSubscriptions" : "Vos abonnements",
+            "emptySubscriptions" : "Aucun abonnement",
+            "totalAnnually" : "Total annuel:",
+            "totalMonthly" : "Total mensuel:"
+        }, 
+        "description" : {
+            "calendar" : "Visualisez vos abonnements par date.",
+            "yourSubscriptions" : "Gérez visuellement la répartition de vos abonnements.",
+            "emptySubscriptions" : "Aucun abonnement prévu pour cette date."
+        },
+        "form" : {
+            "label" : {
+               "name" : "Nom",
+               "amount" : "Montant",
+               "recurrence" : "Récurrence",
+               "executionDate" : "Date d'éxécution",
+               "icon" : "Icône",
+               "annually" : "Annuel",
+               "monthly": "Mensuel",
+               "noResults" : "Pas d'icône(s) correspondante(s)."
+            }
+        }, 
+        "error" : {
+            "input" : {
+                "emptyInput" : "Veuillez remplir tout les champs disponibles."
+          }  
+        },
+        "button" : {
+            "add" : "Ajouter",
+            "menu" : "Menu",
+            "update" : "Modifier",
+            "delete" : "Supprimer"
+        },
+        "add" : {
+            "title" : "Ajout d'un nouvel abonnement.",
+            "description" : "Vous pouvez désormais ajouter facilement un abonnement.",
+            "success" : "L'abonnement a été ajouté avec succès.",
+            "error" : "Une erreur est survenue lors de l'ajout de l'abonnement."
+        },
+        "update" : {
+            "title" : "Modification de votre abonnement.",
+            "description" : "Vous pouvez désormais modifier facilement votre abonnement.",
+            "success" : "Les modifications ont été enregistrées avec succès.",
+            "error" : "Une erreur est survenue lors de l'enregistrement des modifications."
+        },
+        "delete": {
+            "title": "Suppression de votre abonnement",
+            "description": "Êtes-vous sûr de vouloir supprimer votre abonnement ? Cette action est irréversible et toutes les données associées seront perdues.",
+            "back": "Retour",
+            "confirm": "Confirmer",
+            "success" : "Votre abonnement a été supprimer avec succès.",
+            "error" : "Une erreur est survenue lors de la suppression de l'abonnement."
+        },
+        "tabs" : {
+            "thisDay" : "Ce jour",
+            "all" : "Tous",
+            "annually": "Annuel",
+            "monthly" : "Mensuel"
         }
     }
 

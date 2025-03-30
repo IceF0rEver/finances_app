@@ -1,29 +1,30 @@
 {
+    "welcome": "Welcome to the dashboard",
     "auth": {
         "label": {
             "name": "Name",
-            "email": "Email Address",
+            "email": "Email address",
             "password": "Password",
-            "confirmPassword": "Confirm Password",
-            "confirmNewPassword": "Confirm New Password",
-            "newPassword": "New Password"
+            "confirmPassword": "Confirm password",
+            "confirmNewPassword": "Confirm new password",
+            "newPassword": "New password"
         },
         "placeholder": {
+            "email": "Email address",
             "name": "Name",
-            "email": "Email Address",
             "password": "Password",
-            "confirmPassword": "Confirm Password",
-            "confirmNewPassword": "Confirm New Password",
-            "newPassword": "New Password"
+            "newPassword": "New password",
+            "confirmPassword": "Confirm password",
+            "confirmNewPassword": "Confirm new password"
         },
         "button": {
             "logout": "Logout",
-            "registerSubmit": "Create My Account",
+            "registerSubmit": "Create my account",
             "submit": "Login",
-            "update" : "Update"
+            "update": "Update"
         },
         "link": {
-            "forgotPassword": "Forgot Password?",
+            "forgotPassword": "Forgot password?",
             "haveAccount": "I have an account!",
             "noAccount": "No account?"
         },
@@ -31,7 +32,7 @@
             "message": "An error occurred!",
             "passwordMismatch": "Password mismatch"
         },
-        "success" : {
+        "success": {
             "message": "Changes applied!"
         },
         "title": {
@@ -39,94 +40,162 @@
             "login": "Login"
         }
     },
-    "langs" : {
+    "langs": {
         "en": "English",
-        "fr": "Français",
-        "select" : "choose a language"
+        "fr": "French",
+        "select": "Select a language"
     },
-    "sidebar" : {
-        "user" : {
-            "setting" : "Settings",
+    "sidebar": {
+        "user": {
+            "setting": "Settings",
             "account": "Account",
-            "appearance" : "Appearance"
+            "appearance": "Appearance"
         },
-        "label" : "Finance App",
-        "menu" : {
-            "name" :{
-                "budget" : "Budget",
-                "subscription" : "Subscription"
-            },
-            "description" : {
-                "budget" : "Visually manage the distribution of your expenses.",
-                "subscription" : "Subscription"
-            }
-        }
-    },
-    "setting" : {
-        "title" : {
-            "setting" : "Settings",
-            "account" : "Account",
-            "appearance" : "Appearance",
-            "language" : "Language",
-            "theme" : "Theme",
-            "changePassword" : "Change your password?"
-        },
-        "description": {
-            "setting" : "Manage your account settings and preferences.",
-            "account" : "Update your account settings.",
-            "appearance" : "Set your preferred language and color mode.",
-            "language" : "Set the language you want to use in the dashboard.",
-            "theme" : "Select the color theme you want to use in the dashboard."
-        }
-    },
-    "budget" : {
-        "form" : {
-            "title" : {
-                "incomes" : "Incomes",
-                "expenses" : "Expenses"
+        "label": "Financial App",
+        "menu": {
+            "name": {
+                "budget": "Budget",
+                "subscription": "Subscription"
             },
             "description": {
-                "incomes": "Enter your different sources of income.",
-                "expenses": "Enter your different expenses."
+                "budget": "Manage the distribution of your expenses visually.",
+                "subscription": "Manage the distribution of your subscriptions visually."
+            }
+        }
+    },
+    "setting": {
+        "title": {
+            "setting": "Settings",
+            "account": "Account",
+            "appearance": "Appearance",
+            "language": "Language",
+            "theme": "Theme",
+            "changePassword": "Change your password?"
+        },
+        "description": {
+            "setting": "Manage your account settings and preferences.",
+            "account": "Update your account settings.",
+            "appearance": "Choose your preferred language and color mode.",
+            "language": "Choose the language you want to use in the dashboard.",
+            "theme": "Choose the color theme you want to use in the dashboard."
+        }
+    },
+    "budget": {
+        "form": {
+            "title": {
+                "incomes": "Incomes",
+                "expenses": "Expenses"
             },
-            "label" : {
-                "name" : "Name",
-                "amount" : "Amount",
+            "description": {
+                "incomes": "Enter your various incomes.",
+                "expenses": "Enter your various expenses."
+            },
+            "label": {
+                "name": "Name",
+                "amount": "Amount",
                 "categoryName": "Category name"
             }
-        }, 
-       "error": {
+        },
+        "error": {
             "input": {
-                "incomeMinOne": "Please add at least one source of income to proceed to the next step.",
+                "incomeMinOne": "Please add at least one income source to proceed to the next step.",
                 "incomeInput": "Please fill in all fields to proceed to the next step.",
-                "categoryInput": "Please fill in all fields category name to add an expense source.",
-                "expenseInput" : "Please fill in all the fields to add an expense source.",
-                "expenseMinOne" : "Please add at least one source of expense to proceed to the next step."
+                "categoryInput": "Please fill in all category name fields to add an expense source.",
+                "expenseInput": "Please fill in all fields to add an expense source.",
+                "expenseMinOne": "Please add at least one expense source to proceed to the next step."
             }
         },
-        "button" : {
-            "next" : "Next",
-            "previous" : "Previous",
-            "addIncome": "Add a source of income",
-            "addExpense" : "Add a source of expense",
-            "addCategoryExpense" : "Add a category",
-            "sankeyChart" : "Discover my budget",
-            "edit" : "Edit",
-            "delete" : "Delete",
-            "saveChange" : "Save change"
+        "button": {
+            "next": "Next",
+            "previous": "Previous",
+            "addIncome": "Add an income source",
+            "addExpense": "Add an expense source",
+            "addCategoryExpense": "Add a category",
+            "sankeyChart": "Explore my budget",
+            "edit": "Edit",
+            "delete": "Delete",
+            "saveChange": "Save changes"
         },
         "update": {
-            "title": "Update Budget",
-            "description": "You can now easily adjust your expense and income categories, offering more flexibility in managing your monthly budget.",
-            "success": "The changes have been successfully saved.",
+            "title": "Updating your budget.",
+            "description": "You can now easily adjust your income and expense categories, offering more flexibility in managing your monthly budget.",
+            "success": "Changes have been saved successfully.",
             "error": "An error occurred while saving the changes."
         },
         "delete": {
-            "title": "Delete Budget",
+            "title": "Deleting your budget",
             "description": "Are you sure you want to delete your budget? This action is irreversible, and all associated data will be lost.",
-            "back": "Cancel",
-            "confirm": "Continue",
-            "success": "Your budget has been successfully deleted."
+            "back": "Back",
+            "confirm": "Confirm",
+            "success": "Your budget has been deleted successfully.",
+            "error": "An error occurred while deleting the budget."
+        },
+        "add": {
+            "success": "The budget has been added successfully.",
+            "error": "An error occurred while adding the budget."
+        }
+    },
+    "subscription": {
+        "title": {
+            "calendar": "Calendar",
+            "yourSubscriptions": "Your subscriptions",
+            "emptySubscriptions": "No subscriptions",
+            "totalAnnually": "Annual total:",
+            "totalMonthly": "Monthly total:"
+        },
+        "description": {
+            "calendar": "View your subscriptions by date.",
+            "yourSubscriptions": "Manage the distribution of your subscriptions visually.",
+            "emptySubscriptions": "No subscriptions scheduled for this date."
+        },
+        "form": {
+            "label": {
+                "name": "Name",
+                "amount": "Amount",
+                "recurrence": "Recurrence",
+                "executionDate": "Execution date",
+                "icon": "Icon",
+                "annually": "Annually",
+                "monthly": "Monthly",
+                "noResults": "No matching icon(s)."
+            }
+        },
+        "error": {
+            "input": {
+                "emptyInput": "Please fill in all available fields."
+            }
+        },
+        "button": {
+            "add": "Add",
+            "menu": "Menu",
+            "update": "Edit",
+            "delete": "Delete"
+        },
+        "add": {
+            "title": "Adding a new subscription.",
+            "description": "You can now easily add a subscription.",
+            "success": "The subscription has been added successfully.",
+            "error": "An error occurred while adding the subscription."
+        },
+        "update": {
+            "title": "Updating your subscription.",
+            "description": "You can now easily update your subscription.",
+            "success": "Changes have been saved successfully.",
+            "error": "An error occurred while saving the changes."
+        },
+        "delete": {
+            "title": "Deleting your subscription",
+            "description": "Are you sure you want to delete your subscription? This action is irreversible, and all associated data will be lost.",
+            "back": "Back",
+            "confirm": "Confirm",
+            "success": "Your subscription has been deleted successfully.",
+            "error": "An error occurred while deleting the subscription."
+        },
+        "tabs": {
+            "thisDay": "Today",
+            "all": "All",
+            "annually": "Annually",
+            "monthly": "Monthly"
         }
     }
 }
