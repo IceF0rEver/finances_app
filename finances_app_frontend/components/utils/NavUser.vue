@@ -10,8 +10,8 @@
                         </AvatarFallback>
                     </Avatar>
                     <div class="grid flex-1 text-left text-sm leading-tight">
-                        <span class="truncate font-semibold">{{ user?.name }}</span>
-                        <span class="truncate text-xs">{{ user?.email }}</span>
+                        <span class="truncate font-semibold">{{ props.user?.name }}</span>
+                        <span class="truncate text-xs">{{ props.user?.email }}</span>
                     </div>
                     <Icon name="lucide:chevrons-up-down" class="ml-auto size-4"/>
                 </SidebarMenuButton>
@@ -30,14 +30,14 @@
                             </AvatarFallback>
                         </Avatar>
                         <div class="grid flex-1 text-left text-sm leading-tight">
-                            <span class="truncate font-semibold">{{ user?.name }}</span>
-                            <span class="truncate text-xs">{{ user?.email }}</span>
+                            <span class="truncate font-semibold">{{ props.user?.name }}</span>
+                            <span class="truncate text-xs">{{ props.user?.email }}</span>
                         </div>
                     </div>
                 </DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
-                    <NuxtLink class="cursor-pointer" :to="$localePath('/dashboard/setting')">
+                    <NuxtLink class="cursor-pointer" :to="localePath('/dashboard/setting')">
                         <DropdownMenuItem>
                             <Icon name="lucide:settings-2"/>
                             {{ $t('sidebar.user.setting') }}
@@ -55,21 +55,24 @@
     </SidebarMenu>
 </template>
 <script setup lang="ts">
-    import {Avatar,AvatarFallback,} from '@/components/ui/avatar'
-    import {DropdownMenu,DropdownMenuContent,DropdownMenuGroup,DropdownMenuItem,DropdownMenuLabel,DropdownMenuSeparator,DropdownMenuTrigger,} from '@/components/ui/dropdown-menu'
-    import {SidebarMenu,SidebarMenuButton,SidebarMenuItem,useSidebar,} from '@/components/ui/sidebar'
-    import type { userAuth } from '~/utils/types';
+import {Avatar,AvatarFallback,} from '@/components/ui/avatar'
+import {DropdownMenu,DropdownMenuContent,DropdownMenuGroup,DropdownMenuItem,DropdownMenuLabel,DropdownMenuSeparator,DropdownMenuTrigger,} from '@/components/ui/dropdown-menu'
+import {SidebarMenu,SidebarMenuButton,SidebarMenuItem,useSidebar,} from '@/components/ui/sidebar'
+import type { userAuth } from '~/utils/types';
 
-    const { logout } = useAuth();
-    const { isMobile } = useSidebar()
-    
-    defineProps<{ user: userAuth | null }>();
+const { logout } = useAuth();
+const { isMobile } = useSidebar()
+const localePath = useLocalePath();
 
-    async function submit() {
-        try {
-            await logout(); 
-        } catch (err : any) {
-            console.error(err.value);
-        };
+const props = defineProps<{ 
+    user: userAuth | null 
+}>();
+
+async function submit() {
+    try {
+        await logout(); 
+    } catch (err : any) {
+        console.error(err.value);
     };
+};
 </script>
