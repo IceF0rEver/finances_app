@@ -1,18 +1,19 @@
-import type { userForm, userAuth, userAuthError, sankeyDatas } from '@/utils/types';
+import type { userForm, userAuth, userAuthError, sankeyDatas, subscriptionDatas } from '@/utils/types';
 
 export default function useAuth() {
-    const { t } = useI18n();
+    const { t, locale } = useI18n();
     const { api, csrf } = useAxios();
     const localePath = useLocalePath();
     const router = useRouter();
     const rtConfig = useRuntimeConfig()
     const { start, finish } = useLoadingIndicator();
-    const { locale } = useI18n(); 
 
     const userAuth = useCookie<userAuth | null>('user-auth');
     const userAuthError = useState<userAuthError>('user-auth-error');
     const sankeyData = useState<sankeyDatas[]>('sankey-data');
-
+    const subscriptionData = useState<subscriptionDatas[]>('subscription-data');
+    const isOpenInput = useState<boolean>('sankey-is-open-input');
+    const isLoadingSubscription = useState<boolean>('is-loading-subscription');
     
     async function login(userForm: userForm) {
         try {
@@ -77,6 +78,9 @@ export default function useAuth() {
             await api.post("/api/logout");
             userAuth.value = null;
             sankeyData.value = [];
+            subscriptionData.value = [];
+            isOpenInput.value = false;
+            isLoadingSubscription.value = false;
             router.push(localePath('index'));
         } catch (error : any) {
             userAuthError.value = error.response?.data?.errors;

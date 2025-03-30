@@ -36,25 +36,25 @@
     </ClientOnly>
 </template>
 <script setup lang="ts">
-    import { Button } from "@/components/ui/button";
-    import { Input } from "@/components/ui/input";
-    import { Label } from '@/components/ui/label';
-    import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-    import type { userForm, userAuthError } from "@/utils/types";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from '@/components/ui/label';
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { userForm, userAuthError } from "@/utils/types";
 
-    const { login } = useAuth();
-    const userAuthError = useState<userAuthError>('user-auth-error');
-    const emit = defineEmits(["handleIsLogin"]);
-      
-    const form = reactive<userForm>({
-        name: '',
-        email: '',
-        password: '',
-        password_confirmation: ''
-    });
+const { login } = useAuth();
+const userAuthError = useState<userAuthError>('user-auth-error');
+const emit = defineEmits(["handleIsLogin"]);
+  
+const form = ref<userForm>({
+    name: '',
+    email: '',
+    password: '',
+    password_confirmation: ''
+});
 
-    async function submit() {
-        userAuthError.value = {};
-        await login(form); 
-    };
+async function submit() {
+    userAuthError.value = {};
+    await login(form.value); 
+};
 </script>
